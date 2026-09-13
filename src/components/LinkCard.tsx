@@ -1,12 +1,20 @@
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type LinkCardProps = {
   title: string;
   href: string;
   icon?: ReactNode;
+  count?: number;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 };
 
-export default function LinkCard({ title, href, icon }: LinkCardProps) {
+export default function LinkCard({
+  title,
+  href,
+  icon,
+  count,
+  onClick,
+}: LinkCardProps) {
   // mailto: 링크는 새 탭 대신 기본 메일 앱으로 바로 연결
   const isExternal = !href.startsWith("mailto:");
 
@@ -15,6 +23,7 @@ export default function LinkCard({ title, href, icon }: LinkCardProps) {
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
+      onClick={onClick}
       className="group relative flex w-full items-center justify-center rounded-[22px] border border-white/70 bg-white/55 px-6 py-[18px] text-center text-[15px] font-semibold text-stone-800 shadow-[0_8px_24px_-12px_rgba(120,72,40,0.25)] backdrop-blur-xl transition duration-200 ease-out hover:-translate-y-px hover:bg-white/75 hover:shadow-[0_12px_28px_-12px_rgba(120,72,40,0.3)] active:translate-y-0 active:bg-white/65 dark:border-white/10 dark:bg-white/[0.06] dark:text-stone-100 dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.5)] dark:hover:bg-white/[0.1]"
     >
       {icon && (
@@ -23,6 +32,14 @@ export default function LinkCard({ title, href, icon }: LinkCardProps) {
         </span>
       )}
       {title}
+      {count !== undefined && (
+        <span
+          className="absolute right-5 text-xs font-medium tabular-nums text-stone-400 dark:text-stone-500"
+          aria-label={`클릭 ${count}회`}
+        >
+          {count.toLocaleString("ko-KR")}회
+        </span>
+      )}
     </a>
   );
 }
