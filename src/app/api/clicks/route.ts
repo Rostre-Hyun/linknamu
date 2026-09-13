@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import clientPromise, {
+import {
   CLICKS_COLLECTION,
+  getMongoClient,
   DB_NAME,
   type ClickDoc,
 } from "@/lib/mongodb";
@@ -10,7 +11,7 @@ export const dynamic = "force-dynamic";
 // 모든 링크의 클릭 수를 { [id]: count } 형태로 반환
 export async function GET() {
   try {
-    const client = await clientPromise;
+    const client = await getMongoClient();
     const docs = await client
       .db(DB_NAME)
       .collection<ClickDoc>(CLICKS_COLLECTION)
@@ -39,7 +40,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const client = await clientPromise;
+    const client = await getMongoClient();
     const result = await client
       .db(DB_NAME)
       .collection<ClickDoc>(CLICKS_COLLECTION)
