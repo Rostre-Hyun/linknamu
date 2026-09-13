@@ -1,5 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-  <rect width="256" height="256" fill="#c7d2fe"/>
-  <circle cx="128" cy="100" r="44" fill="#4f46e5"/>
-  <path d="M40 232c8-52 46-80 88-80s80 28 88 80z" fill="#4f46e5"/>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </radialGradient>
+    <linearGradient id="petal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="petalDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="256" height="256" fill="url(#bg)"/>
+
+  <!-- 줄기 -->
+  <path d="M128 132 C126 160 130 190 124 244" stroke="#166534" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- 가시 -->
+  <path d="M127 170 l-8 -4 M128 196 l8 -5 M125 222 l-8 -4" stroke="#166534" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 잎 -->
+  <path d="M127 178 C100 168 86 180 84 204 C108 206 124 196 127 178 Z" fill="url(#leaf)"/>
+  <path d="M127 178 C104 184 94 194 88 202" stroke="#14532d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M126 204 C152 194 168 206 170 230 C146 232 130 222 126 204 Z" fill="url(#leaf)"/>
+  <path d="M126 204 C148 210 158 220 166 228" stroke="#14532d" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- 꽃받침 -->
+  <path d="M128 140 l-22 -18 l10 -2 Z" fill="#16a34a"/>
+  <path d="M128 140 l22 -18 l-10 -2 Z" fill="#16a34a"/>
+  <path d="M128 142 l-6 -20 h12 Z" fill="#15803d"/>
+
+  <!-- 바깥 꽃잎 -->
+  <path d="M128 130 C88 130 70 100 78 66 C94 72 110 90 128 130 Z" fill="url(#petalDark)"/>
+  <path d="M128 130 C168 130 186 100 178 66 C162 72 146 90 128 130 Z" fill="url(#petalDark)"/>
+  <path d="M128 132 C96 128 78 106 82 78 C102 84 124 104 128 132 Z" fill="url(#petal)"/>
+  <path d="M128 132 C160 128 178 106 174 78 C154 84 132 104 128 132 Z" fill="url(#petal)"/>
+
+  <!-- 중간 꽃잎 -->
+  <path d="M128 126 C102 122 92 100 100 72 C112 82 126 100 128 126 Z" fill="url(#petalDark)"/>
+  <path d="M128 126 C154 122 164 100 156 72 C144 82 130 100 128 126 Z" fill="url(#petalDark)"/>
+  <path d="M128 124 C110 116 104 96 112 76 C122 86 130 104 128 124 Z" fill="url(#petal)"/>
+  <path d="M128 124 C146 116 152 96 144 76 C134 86 126 104 128 124 Z" fill="url(#petal)"/>
+
+  <!-- 안쪽 소용돌이 -->
+  <path d="M128 118 C116 112 114 96 122 84 C132 90 136 104 128 118 Z" fill="url(#petalDark)"/>
+  <path d="M128 116 C138 110 140 96 134 86 C126 92 122 104 128 116 Z" fill="url(#petal)"/>
+  <path d="M128 112 C122 106 122 96 128 90 C132 96 132 106 128 112 Z" fill="#93c5fd"/>
+
+  <!-- 하이라이트 -->
+  <path d="M96 80 C94 96 100 110 112 120" stroke="#bfdbfe" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M160 80 C162 96 156 110 144 120" stroke="#bfdbfe" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
 </svg>
